@@ -1,0 +1,16 @@
+# use jupyter-book version 2!
+#jupyter-book==2.*
+# only pre-release version available yet apparently
+jupyter-book==2.0.0b3
+matplotlib
+seaborn
+numpy
+pandas
+torch
+torchvision
+tqdm
+scikit-learn
+ghp-import
+# pydata-sphinx-theme 0.16 breaks sidebar
+# no longer required after upgrading to jupyter book >= 2.0
+# pydata-sphinx-theme<0.16
