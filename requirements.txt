@@ -4,12 +4,14 @@
 jupyter-book==2.0.0b3
 matplotlib
 seaborn
+scikit-learn
 numpy
 pandas
 torch
-torchvision
+torch_geometric
+networkx
+more-itertools
 tqdm
-scikit-learn
 ghp-import
 # pydata-sphinx-theme 0.16 breaks sidebar
 # no longer required after upgrading to jupyter book >= 2.0
