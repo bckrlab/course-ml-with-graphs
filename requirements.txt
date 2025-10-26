@@ -9,7 +9,7 @@ numpy
 pandas
 torch
 torch_geometric
-torch-cluster
+pyg_lib
 networkx
 more-itertools
 tqdm
