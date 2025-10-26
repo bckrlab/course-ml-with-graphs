@@ -1,6 +1,7 @@
 # use jupyter-book version 2!
 #jupyter-book==2.*
 # only pre-release version available yet apparently
+python=3.12
 jupyter-book==2.0.0b3
 matplotlib
 seaborn
@@ -9,7 +10,6 @@ numpy
 pandas
 torch
 torch_geometric
-pyg_lib
 networkx
 more-itertools
 tqdm
