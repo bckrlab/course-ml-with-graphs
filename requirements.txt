@@ -7,9 +7,9 @@ seaborn
 scikit-learn
 numpy
 pandas
-torch
-torch_geometric
-pyg_lib
+torch==2.4.1
+torch_geometric==2.6.1
+pyg_lib==0.4.0
 networkx
 more-itertools
 tqdm
