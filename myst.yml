@@ -27,6 +27,7 @@ project:
     - file: content/landing.md 
     - file: content/w1_forbook.ipynb
     - file: content/w2_forbook.ipynb
+    - file: content/w3_forbook.ipynb
 site:
   template: book-theme
   # options:
