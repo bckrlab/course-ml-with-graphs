@@ -35,6 +35,7 @@ project:
     - file: content/w8_forbook.ipynb
     - file: content/w9_forbook.ipynb
     - file: content/w10_forbook.ipynb
+    - file: content/w11_forbook.ipynb
 site:
   template: book-theme
   # options:
