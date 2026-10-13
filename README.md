@@ -35,7 +35,13 @@ A fully-rendered HTML version of the book will be built in `_build/html/`.
 myst.yml
 
 # add python requirements for binderhub here
+# (these are for building the book, NOT the student environment)
 requirements.txt
+
+# student environments for running the notebooks locally
+# (uv and conda variants; keep them in sync)
+content/assets/pyproject.toml
+content/assets/env.yml
 
 # actual content of the book (markdown files, notebooks, etc.)
 content/

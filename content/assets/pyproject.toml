@@ -1,0 +1,110 @@
+# Python environment for the "Machine Learning with Graphs" exercise notebooks,
+# managed with uv (https://docs.astral.sh/uv/).
+#
+# Quick start (run in the folder that contains this file):
+#
+#   uv sync --extra cpu        # CPU-only PyTorch (works on Linux, macOS, Windows)
+#   uv sync --extra cu130      # PyTorch with CUDA 13.0 (NVIDIA GPU, Linux/Windows)
+#   uv run jupyter lab         # start Jupyter with the environment activated
+#
+# This is the uv counterpart of env.yml (conda). The packages mirror that file;
+# the pinned torch version is the one for which pre-built pyg_lib wheels exist.
+
+[project]
+name = "mlwg"
+version = "0.1.0"
+description = "Student environment for the Machine Learning with Graphs course"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    # notebooks
+    "jupyterlab",
+    "ipykernel",
+    "ipywidgets",
+    # scientific python
+    "numpy",
+    "scipy",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "tqdm",
+    "rich",
+    "more-itertools",
+    # graphs
+    "networkx",
+    "torch-geometric",
+]
+
+[project.optional-dependencies]
+# Pick exactly one of these when running `uv sync --extra ...`.
+# pyg_lib provides the compiled kernels PyG needs (e.g. random walks for Node2Vec)
+# and must match the torch build, so it lives next to torch here.
+cpu = [
+    "torch==2.14.0",
+    "torchvision",
+    "torchaudio",
+    "pyg-lib",
+]
+cu130 = [
+    "torch==2.14.0",
+    "torchvision",
+    "torchaudio",
+    "pyg-lib",
+]
+# Optional: pygraphviz needs the Graphviz C library installed on your system
+# (e.g. `apt install graphviz libgraphviz-dev` or `brew install graphviz`).
+graphviz = [
+    "pygraphviz",
+]
+
+[tool.uv]
+# This is an environment definition, not an installable package.
+package = false
+# The cpu and cu130 extras are mutually exclusive.
+conflicts = [
+    [
+        { extra = "cpu" },
+        { extra = "cu130" },
+    ],
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu130", extra = "cu130" },
+]
+torchvision = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu130", extra = "cu130" },
+]
+torchaudio = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu130", extra = "cu130" },
+]
+pyg-lib = [
+    { index = "pyg-cpu", extra = "cpu" },
+    { index = "pyg-cu130", extra = "cu130" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+# PyG publishes pyg_lib as a flat "find-links" page per torch version.
+[[tool.uv.index]]
+name = "pyg-cpu"
+url = "https://data.pyg.org/whl/torch-2.14.0+cpu.html"
+format = "flat"
+explicit = true
+
+[[tool.uv.index]]
+name = "pyg-cu130"
+url = "https://data.pyg.org/whl/torch-2.14.0+cu130.html"
+format = "flat"
+explicit = true
